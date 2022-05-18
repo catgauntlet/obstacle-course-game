@@ -6,6 +6,8 @@ public class MovementController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 0f;
 
+    [SerializeField] private GameManager gameManager;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,5 +21,9 @@ public class MovementController : MonoBehaviour
         this.transform.Translate(xValue, 0f, zValue);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        gameManager.IncreaseScore();
+    }
 }
 
