@@ -23,7 +23,11 @@ public class MovementController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        gameManager.IncreaseScore();
+        if (collision.collider.gameObject.tag != "Hit")
+        {
+            collision.collider.gameObject.tag = "Hit";
+            gameManager.IncreaseScore();
+        }
     }
 }
 
