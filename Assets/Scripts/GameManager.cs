@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI text;
+
     private int score;
 
     // Start is called before the first frame update
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
+        text.text = "Objects touched: " + score;
         Debug.Log("Score increased: " + score);
     }
 }
